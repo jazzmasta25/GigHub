@@ -65,11 +65,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { font-family: 'Lato', sans
     -ms-border-radius: 9px;
     border-radius: 9px;
     font-size: 17px;
-    padding: 20px 15px;
+    height: 44px;
 }
 
 select.form-control {
-    padding: 0;
     text-indent: 10px;
 }
 
@@ -130,3 +129,12 @@ select.form-control {
 .gigs > li .details .artist { font-weight: bold; }
 
 .gigs > li .details .genre { font-size: 15px; }
+
+.gigs > li .actions {
+    font-size: 15px;
+    display: none;
+}
+
+.gigs > li:hover .actions {
+    display: block;
+}
