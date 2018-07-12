@@ -46,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
@@ -53,6 +56,10 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -203,13 +210,19 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\MappingProfile.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\AttendancesController.cs" />
     <Compile Include="Controllers\Api\FollowingsController.cs" />
+    <Compile Include="Controllers\Api\GenreDto.cs" />
+    <Compile Include="Controllers\Api\GigDto.cs" />
     <Compile Include="Controllers\Api\GigsController.cs" />
+    <Compile Include="Controllers\Api\NotificationDto.cs" />
+    <Compile Include="Controllers\Api\NotificationsController.cs" />
+    <Compile Include="Controllers\Api\UserDto.cs" />
     <Compile Include="Controllers\FolloweesController.cs" />
     <Compile Include="Controllers\GigsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -220,6 +233,10 @@
     <Compile Include="Migrations\201807121437546_AddNotification.cs" />
     <Compile Include="Migrations\201807121437546_AddNotification.Designer.cs">
       <DependentUpon>201807121437546_AddNotification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807121646546_check.cs" />
+    <Compile Include="Migrations\201807121646546_check.Designer.cs">
+      <DependentUpon>201807121646546_check.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Notification.cs" />
     <Compile Include="Models\NotificationType.cs" />
@@ -355,7 +372,9 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
@@ -389,6 +408,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807121437546_AddNotification.resx">
       <DependentUpon>201807121437546_AddNotification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807121646546_check.resx">
+      <DependentUpon>201807121646546_check.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

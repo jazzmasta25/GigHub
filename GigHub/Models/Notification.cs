@@ -12,7 +12,7 @@ namespace GigHub.Models
         private Notification(NotificationType type, Gig gig)
         {
             if (gig == null)
-                throw new ArgumentNullException("gig");
+                throw new ArgumentNullException(nameof(gig));
 
             Type = type;
             Gig = gig;
@@ -25,7 +25,8 @@ namespace GigHub.Models
         public DateTime? OriginalDateTime { get; private set; }
         public string OriginalVenue { get; private set; }
 
-        [Required] public Gig Gig { get; }
+        [Required]
+        public Gig Gig { get; private set; }
 
         public static Notification GigCreated(Gig gig)
         {
