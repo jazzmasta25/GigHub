@@ -138,3 +138,7 @@ select.form-control {
 .gigs > li:hover .actions {
     display: block;
 }
+
+.dropdown-menu {
+    width: 100%;
+}
