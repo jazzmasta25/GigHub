@@ -238,6 +238,10 @@
     <Compile Include="Migrations\201807121646546_check.Designer.cs">
       <DependentUpon>201807121646546_check.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807131912376_check1.cs" />
+    <Compile Include="Migrations\201807131912376_check1.Designer.cs">
+      <DependentUpon>201807131912376_check1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Notification.cs" />
     <Compile Include="Models\NotificationType.cs" />
     <Compile Include="Models\UserNotification.cs" />
@@ -297,6 +301,7 @@
     <Compile Include="ViewModels\ValidTime.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\animate.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -321,6 +326,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\underscore-min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -411,6 +417,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807121646546_check.resx">
       <DependentUpon>201807121646546_check.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807131912376_check1.resx">
+      <DependentUpon>201807131912376_check1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

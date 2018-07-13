@@ -43,6 +43,17 @@ textarea { max-width: 280px; }
     border-color: #ff4342;
 }
 
+.navbar-inverse .notifications {
+    position: relative;
+}
+
+    .navbar-inverse .notifications .badge {
+        position: absolute;
+        top: 8px;
+        right: -1px;
+        background: #a80a0a;
+    }
+
 .navbar-inverse .navbar-nav > li > a, .navbar-inverse .navbar-brand { color: #fff; }
 
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
@@ -142,3 +153,4 @@ select.form-control {
 .dropdown-menu {
     width: 100%;
 }
+
