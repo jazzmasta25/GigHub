@@ -4,8 +4,19 @@
 }
 
 <h1>@Model.Heading</h1>
+@using (Html.BeginForm("Search", "Gigs"))
+{
+    <div class="form-group">
+        <div id="searchGigs" class="input-group">
+            @Html.TextBoxFor(m => m.SearchTerm, new { @class = "form-control", placeholder = "Search by artist, genre..." })
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-search"></i>
+            </span>
+        </div>
+    </div>
+}
 
-<ul class="gigs voffset-4">
+<ul id="gigs" class="gigs voffset-4">
     @foreach (var gig in Model.UpcomingGigs)
     {
         <li>
@@ -19,7 +30,7 @@
             </div>
             <div class="details">
                 <div class="artist">
-                    @gig.Artist.Name 
+                    <a href="@Url.Action("Details","Gigs", new { id = gig.Id})">@gig.Artist.Name</a>
                     
                     @if (@gig.IsCanceled)
                     {
@@ -36,25 +47,20 @@
                 </span>
                 @if (@Model.ShowActions && !@gig.IsCanceled)
                 {
-                    <button data-gig-id="@gig.Id" class="btn btn-sm btn-default pull-right js-toggle-attendance">Going ?</button>
+                    <button
+                        data-gig-id="@gig.Id"
+                        class="btn btn-sm @(Model.Attendances.Contains(gig.Id) ? "btn-info" : "btn-default") pull-right js-toggle-attendance">Going ?</button>
                 }
             </div>
         </li>
     }
 </ul>
+
 @section scripts {
     <script>
-        $(document).ready(function() {
-            $(".js-toggle-attendance").click(function(e) {
-                var button = $(e.target);
-                $.post("/api/attendances", {gigId : button.attr("data-gig-id") })
-                    .done(function() {
-                        button.removeClass("btn-default").addClass("btn-info").text("Going");
-                    })
-                    .fail(function() {
-                        alert("Something failed!");
-                    });
-            });
+        $(document).ready(function () {
+            GigsController.init("#gigs");
+            
             $(".js-toggle-follow").click(function(e) {
                 var button = $(e.target);
                 $.post("/api/followings", {followeeId : button.attr("data-user-id") })
